@@ -1,3 +1,7 @@
+This is a Sample application for poksific made using ruby on rails.
+
+By Diepriye Pokima 
+
 == Welcome to Rails
 
 Rails is a web-application framework that includes everything needed to create
