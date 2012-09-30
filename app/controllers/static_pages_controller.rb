@@ -13,4 +13,8 @@ class StaticPagesController < ApplicationController
 
   def media
   end
+  
+  def help
+  end
+  
 end

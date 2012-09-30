@@ -7,8 +7,27 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id="logos">
+	<img alt="logo" src="/assets/pi_logo.jpg" width="100px" height="40px" id="menu_img"/>
+	<div id="logo_con">
+		<ul id="menu_ul">
+			<li id="menu_li"><a id="done" href="/"><b>Home</b></a></li>
+			<li id="menu_li"><a id="done" href="/articles" class="alt"><b>Articles</b></a></li>
+			<li id="menu_li"><a id="done" href="/media" ><b>Media</b></a></li>
+			<li id="menu_li"><a id="done" href="/contact" class="alt"><b>Contact</b></a></li>
+			<li id="menu_li"><a id="done" href="/about"><b>About</b></a></li>
+			<li id="menu_li"><a id="done" href="#" class="alt"><b>login</b></a></li>
+			<li id="menu_li"><a id="done" href="/help"><b>Help</b></a></li>
+			
+		</ul>
+	</div>
+</div>
 
-<%= yield %>
+<div id="container">
+	
+	<%= yield %>
+
+</div>
 
 </body>
 </html>
