@@ -7,7 +7,12 @@ class Message
   attr_accessor :name, :email, :subject, :body
 
   validates :name, :email, :subject, :body, :presence => true
-  validates :email, :format => { :with => %r{.+@.+\..+} }, :allow_blank => true
+  validates :subject , length: { maximum: 40 }
+  validates :body , length: { maximum: 200 }
+
+  ##Group up if possible.
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
   
   def initialize(attributes = {})
     attributes.each do |name, value|
