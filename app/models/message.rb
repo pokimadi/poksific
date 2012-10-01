@@ -6,7 +6,7 @@ class Message
 
   attr_accessor :name, :email, :subject, :body
 
-  validates :name, :email, :subject, :body, :presence => true
+  validates :name, :subject, :body, :presence => true
   validates :subject , length: { maximum: 40 }
   validates :body , length: { maximum: 200 }
 

@@ -5,27 +5,17 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <%= render 'layouts/shim' %>
 </head>
 <body>
-<div id="logos">
-	<img alt="logo" src="/assets/pi_logo.jpg" width="100px" height="40px" id="menu_img"/>
-	<div id="logo_con">
-		<ul id="menu_ul">
-			<li id="menu_li"><a id="done" href="/"><b>Home</b></a></li>
-			<li id="menu_li"><a id="done" href="/articles" class="alt"><b>Articles</b></a></li>
-			<li id="menu_li"><a id="done" href="/media" ><b>Media</b></a></li>
-			<li id="menu_li"><a id="done" href="/contact" class="alt"><b>Contact</b></a></li>
-			<li id="menu_li"><a id="done" href="/about"><b>About</b></a></li>
-			<li id="menu_li"><a id="done" href="#" class="alt"><b>login</b></a></li>
-			
-		</ul>
-	</div>
-</div>
-
+<%= render 'layouts/header' %>
 <div id="container">
-	
-	<%= yield %>
+	<% flash.each do |key, value| %>
+		<div class="alert alert-<%= key %>"><%= value %></div>
+	<% end %>
 
+	<%= yield %>
+	<%= debug(params) if Rails.env.development? %>
 </div>
 
 </body>
