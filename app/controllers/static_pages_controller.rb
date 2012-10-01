@@ -5,8 +5,6 @@ class StaticPagesController < ApplicationController
   def about
   end
 
-  def contact
-  end
 
   def articles
   end
@@ -14,7 +12,5 @@ class StaticPagesController < ApplicationController
   def media
   end
   
-  def help
-  end
-  
+
 end

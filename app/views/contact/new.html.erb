@@ -1,0 +1,41 @@
+<%= form_for @message, :url => contact_path do |form| %>
+	<% if @message.errors.any? %>
+  		<div id="errorExplanation">
+    	<h2><%= pluralize(@message.errors.count, "error") %> prohibitedthis message from being sent:</h2>
+    	<ul>
+    		<% @message.errors.full_messages.each do |msg| %>
+      			<li><%= msg %></li>
+    		<% end %>
+    	</ul>
+  		</div>
+	<% end %>
+
+
+
+
+
+  <fieldset class="fields">
+    <div class="field">
+      <%= form.label :name %><br />
+      <%= form.text_field :name %>
+    </div>
+    
+    <div class="field">
+      <%= form.label :email %><br />
+      <%= form.text_field :email %>
+    </div>
+    <div class="field">
+      <%= form.label :subject %><br />
+      <%= form.text_field :subject %>
+    </div>
+    
+    <div class="field">
+      <%= form.label :body %><br />
+      <%= form.text_area :body %>
+    </div>
+  </fieldset>
+  
+  <fieldset class="actions">
+    <%= form.submit "Send" %>
+  </fieldset>
+<% end %>
