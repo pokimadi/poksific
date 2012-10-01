@@ -3,6 +3,6 @@ class HelpMailer < ActionMailer::Base
   
   def contact_email(message)
     @message = message
-    mail(to:"examfoo@gmail.com" ,:subject => "Notification: #{message.subject}")
+    mail(:to => "examfoo@gmail.com" ,:subject => "Notification: #{message.subject}")
   end
 end
