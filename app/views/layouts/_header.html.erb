@@ -8,7 +8,7 @@
 			<li id="menu_li"><a id="done" href="/contact" class="alt"><b>Contact</b></a></li>
 			<li id="menu_li"><a id="done" href="/about"><b>About</b></a></li>
 			<% if signed_in? %>
-				<li id="menu_li"><a id="done" href="/signout" method="delete" class="alt"><b>Signout</b></a></li>
+				<li id="menu_li"><a id="done" href="/signout" data-method="delete"  rel="nofollow" class="alt"><b>Signout</b></a></li>
 			<% else %>
 				<li id="menu_li"><a id="done" href="/signin" class="alt"><b>login</b></a></li>
 			<% end %>
