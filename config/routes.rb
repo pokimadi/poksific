@@ -8,7 +8,10 @@ Poksific::Application.routes.draw do
 # get "static_pages/media"
   root to: 'static_pages#home'
   resources :sessions, only: [:new, :create, :destroy]
+  resources :uploads, only: [:new, :create, :destroy, :show]
 
+
+  match '/upload', to: 'uploads#new'
   
   match '/signup', to: 'users#new'
   match '/signin', to: 'sessions#new'
@@ -23,7 +26,7 @@ Poksific::Application.routes.draw do
 
   match 'contact' => 'contact#create', :as => 'contact', :via => :post
   
-  match '/media', to: 'static_pages#media'
+  match '/media', to: 'uploads#video'
   
   match '/articles', to: 'static_pages#articles'
   
