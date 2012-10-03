@@ -25,7 +25,7 @@ class Upload < ActiveRecord::Base
 
   default_scope order: 'uploads.created_at DESC'
   
-  validates :about, presence: true, length: { maximum: 140 }
+  validates :about, presence: true, length: { maximum: 240 }
   validates :title, presence: true, length: { maximum: 60 }
   validates :url, presence: true, length: { maximum: 60 }
   validates :title, presence: true
@@ -34,4 +34,7 @@ class Upload < ActiveRecord::Base
     where("lower(type) = 'video'")
   end
 
+  def self.get_articles
+    where("lower(type) = 'article'")
+  end
 end

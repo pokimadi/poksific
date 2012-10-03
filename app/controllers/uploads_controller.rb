@@ -9,6 +9,7 @@ class UploadsController < ApplicationController
   
   def show
     @upload = Upload.find(params[:id])
+    @upload.view = @upload.view + 1
   end
   
   def index
@@ -19,12 +20,16 @@ class UploadsController < ApplicationController
     @v_upload= Upload.get_videos  
   end
   
+  def article
+    @v_upload= Upload.get_articles  
+  end
+  
   def create
     if @upload.save
       flash[:success] = "Item was created!"
       redirect_to root_path
     else
-      render '/upload'
+      render 'new'
     end
   end
   
@@ -44,6 +49,10 @@ class UploadsController < ApplicationController
             @upload.url[/^.*((v\/)|(embed\/)|(watch\?))\??v?=?([^\&\?]*).*/]
             @upload.embedid = $5
           end
+        elsif @upload.type.downcase == "article"
+            if @upload.url.blank?
+               @upload.url ="poksific.herokuapp.com"
+            end
         end
          
        

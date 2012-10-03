@@ -28,7 +28,7 @@ Poksific::Application.routes.draw do
   
   match '/media', to: 'uploads#video'
   
-  match '/articles', to: 'static_pages#articles'
+  match '/articles', to: 'uploads#article'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

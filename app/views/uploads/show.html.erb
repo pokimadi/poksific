@@ -1,4 +1,12 @@
-<iframe title="YouTube video player" 
-width="560" height="350" 
-src= <%="http://www.youtube.com/embed/#{@upload.embedid}" %>
-frameborder="0" allowfullscreen></iframe>
+<% if @upload.embedid.blank? %>
+	<h1><%= @upload.title %></h1>
+	<p>by user name <p>
+	<p><%= @upload.url %></p>
+	<p><%= @upload.about %></p>
+
+<% else %>
+	<iframe title="YouTube video player" 
+	width="560" height="350" 
+	src= <%="http://www.youtube.com/embed/#{@upload.embedid}" %>
+	frameborder="0" allowfullscreen></iframe>
+<% end %>

@@ -1,0 +1,13 @@
+<% @v_upload.each do |art| %>
+<li>
+		<a href= <%= "/uploads/#{art.id}" %>>
+		<img src= <%= "/assets/rails.png" %> alt=''></img>
+		  <%
+		  		title = art.title + "               " %>
+		  <h3><%= title[0,15] %></h3>
+		  <p>by: user name </p>
+		</a>
+
+
+</li>
+<% end %>
