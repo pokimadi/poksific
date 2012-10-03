@@ -1,0 +1,19 @@
+<li id="menu_li"><a id="done" href="#"><b>Messages(0)</b></a></li>
+<li id="menu_li"><a id="done" href="#" class="alt"><b>Posts</b></a></li>
+<li id="menu_li">
+	<div class="dropdown">
+	  <a class="dropdown-toggle" id="done" data-toggle="dropdown" href="#">
+	  	<b><%= current_user.name %></b>
+	  	</a>
+	  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+	    <li>
+	    	<%= link_to "Profile", current_user %>
+		</li>
+	    <li>
+	    	<%= link_to "Edits", edit_user_path(current_user)%> 	
+	    </li>
+	    <li><a href="#"> Upload</a></li>
+	    <li><a href="/signout" data-method="delete"  rel="nofollow" > Signout</a></li>
+	  </ul>
+	</div>
+</li>
