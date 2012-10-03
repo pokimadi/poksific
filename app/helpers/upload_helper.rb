@@ -12,7 +12,16 @@ module UploadHelper
   end
   
   def video_id(source_url)
-    video_regexp.each { |m| return m.match(source_url)[1] unless m.nil? }
+    if source_url.blank?
+      return nil
+    else
+      video_regexp.each { |m| 
+          if !(m.match(source_url).nil?)
+            return m.match(source_url)[1]
+          end 
+      }
+    end
+    return nil
   end
 
   

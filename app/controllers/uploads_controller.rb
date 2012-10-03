@@ -43,9 +43,9 @@ class UploadsController < ApplicationController
         @upload = current_user.uploads.build(params[:upload])
         @upload.view = 1
         if @upload.type.downcase == "video"
-          if video_id(@upload.url).nil?
+          if video_id(@upload.url).blank?
             #Do something
-            @upload.url =nil
+            @upload.url = nil
           else
             if @upload.url[/youtu\.be\/([^\?]*)/]
               @upload.embedid= $1
