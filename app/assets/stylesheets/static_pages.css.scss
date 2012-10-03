@@ -5,13 +5,14 @@
 
 
 /* MENU */
+// TODO: figure out why class can't be used where id is. that is in substitute.
+// TODO: Id should not be used in multiple instances.
 #menu_ul
 {
   list-style-type:none;
   margin:0;
   padding:0;
   height:40px;
-  overflow:hidden;
   text-align:center;
 }
 
@@ -25,6 +26,13 @@
   height:40px;
 }
 
+// TODO:menu ri is actually li 
+#menu_ri
+{
+  float:right;
+  height:40px;
+}
+
 #done
 {
   text-decoration:none;
@@ -33,10 +41,20 @@
   border:0px;
   display:block;
   width:80px;
-  height:40px;
-  background-color:#000;
+  height:30px;
+  background-color:#242223;
   text-align:center;
   /*text-align:center;*/
+}
+
+#search{
+  padding-top:5px;
+  height:30px;
+}
+
+li.right{
+  float:right;
+  //background-color:#000;
 }
 
 .alt{
@@ -51,26 +69,42 @@
   margin-right:auto;
 }
 
+.up_width{
+  width:700px;
+}
+
 #menu_li a:hover{
   background-color:#FFF;
   color:#000;
 }
 
+//TODO:menu ri is menu li
+#menu_ri a {
+  background-color:#000;
+}
+#menu_ri a:hover{
+  background-color:#242223;
+  color:#000;
+}
 a{
   color:#603;
-  height:40px;
 }
 a:hover{
   color:#F03;
 }
-
-#logos{
+//Complete bar Holder
+.logos
+{
   width:100%;
   height: 40px;
   background-color:#000;
   padding:0px;
   margin:0px;
-  overflow:hidden;
+  //overflow:hidden; // prevents dropdown menu
+}
+#light
+{
+  background-color:#242223;
 }
 
 //about

@@ -1,16 +1,36 @@
-<div id="logos">
-	<img alt="logo" src="/assets/pi_logo.jpg" width="100px" height="40px" id="menu_img"/>
+<div class="logos" id="light">
 	<div id="logo_con">
 		<ul id="menu_ul">
-			<li id="menu_li"><a id="done" href="/"><b>Home</b></a></li>
-			<li id="menu_li"><a id="done" href="/articles" class="alt"><b>Articles</b></a></li>
-			<li id="menu_li"><a id="done" href="/media" ><b>Media</b></a></li>
-			<li id="menu_li"><a id="done" href="/contact" class="alt"><b>Contact</b></a></li>
-			<li id="menu_li"><a id="done" href="/about"><b>About</b></a></li>
+			<li id="menu_li" ><a id="done" href="/"><b>Home</b></a></li>
+			<li id="menu_li" ><a id="done" href="/articles" class="alt"><b>Articles</b></a></li>
+			<li id="menu_li" ><a id="done" href="/media" ><b>Media</b></a></li>
+			<li id="menu_li" ><a id="done" href="/contact" class="alt"><b>Contact</b></a></li>
 			<% if signed_in? %>
-				<li id="menu_li"><a id="done" href="/signout" data-method="delete"  rel="nofollow" class="alt"><b>Signout</b></a></li>
+				<li id="menu_li"><a id="done" href="#"><b>Messages(0)</b></a></li>
+				<li id="menu_li"><a id="done" href="#" class="alt"><b>Posts</b></a></li>
+				<li id="menu_li">
+					<div class="dropdown">
+					  <a class="dropdown-toggle" id="done" data-toggle="dropdown" href="#">
+					  	<b><%= current_user.name %></b>
+					  	</a>
+					  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+					    <li>
+					    	<%= link_to "Profile", current_user %>
+						</li>
+					    <li>
+					    	<%= link_to "Edits", edit_user_path(current_user)%> 	
+					    </li>
+					    <li><a href="#"> Upload</a></li>
+					    <li><a href="/signout" data-method="delete"  rel="nofollow" > Signout</a></li>
+					  </ul>
+					</div>
+				</li>
+				<% if current_user.admin? %>
+					<li id="menu_li"><%= link_to "Users", users_path, class:"alt", id:"done" %></li>
+				<% end %>
+					
 			<% else %>
-				<li id="menu_li"><a id="done" href="/signin" class="alt"><b>login</b></a></li>
+				<li id="menu_li"><a id="done" href="/signin"><b>login</b></a></li>
 			<% end %>
 		</ul>
 	</div>
