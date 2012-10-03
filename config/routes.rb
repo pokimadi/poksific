@@ -6,7 +6,7 @@ Poksific::Application.routes.draw do
 #get "static_pages/contact"
 #get "static_pages/articles"
 # get "static_pages/media"
-  root to: 'static_pages#home'
+  root to: 'uploads#index'
   resources :sessions, only: [:new, :create, :destroy]
   resources :uploads, only: [:new, :create, :destroy, :show]
 

@@ -1,6 +1,6 @@
 class UploadsController < ApplicationController
 
-  before_filter :signed_in_user
+  before_filter :signed_in_user, except: [:index, :show, :video, :article]
   before_filter :add_upload, only: :create
   
   def new
@@ -13,6 +13,7 @@ class UploadsController < ApplicationController
   end
   
   def index
+    @v_upload = Upload.all
     
   end
   

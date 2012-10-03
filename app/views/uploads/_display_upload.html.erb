@@ -1,0 +1,25 @@
+<% @v_upload.each do |art| %>
+<li>
+	<% if art.embedid.blank? %>
+		<a href= <%= "/uploads/#{art.id}" %>>
+		<img src= <%= "/assets/rails.png" %> alt=''></img>
+		  <%
+		  		title = art.title + "               " %>
+		  <h3><%= title[0,15] %></h3>
+		  <p>by: user name </p>
+		</a>
+	<% else %>
+		<ul class="thumbnails">
+			<li class="span2">
+				<a href=<%= "/uploads/#{art.id}" %> class="thumbnail">
+				<img src= <%= "http://img.youtube.com/vi/#{art.embedid}/0.jpg" %> alt="">
+			</a>
+			</li>
+			<li> <p><%= art.title %></p>
+					by user name
+			</li>
+		</ul>
+	<% end%>
+
+</li>
+<% end %>
