@@ -43,12 +43,17 @@ class UploadsController < ApplicationController
         @upload = current_user.uploads.build(params[:upload])
         @upload.view = 1
         if @upload.type.downcase == "video"
-          if @upload.url[/youtu\.be\/([^\?]*)/]
-            @upload.embedid= $1
+          if video_id(@upload.url).nil?
+            #Do something
+            @upload.url =nil
           else
-            # Regex from # http://stackoverflow.com/questions/3452546/javascript-regex-how-to-get-youtube-video-id-from-url/4811367#4811367
-            @upload.url[/^.*((v\/)|(embed\/)|(watch\?))\??v?=?([^\&\?]*).*/]
-            @upload.embedid = $5
+            if @upload.url[/youtu\.be\/([^\?]*)/]
+              @upload.embedid= $1
+            else
+              # Regex from # http://stackoverflow.com/questions/3452546/javascript-regex-how-to-get-youtube-video-id-from-url/4811367#4811367
+              @upload.url[/^.*((v\/)|(embed\/)|(watch\?))\??v?=?([^\&\?]*).*/]
+              @upload.embedid = $5
+            end
           end
         elsif @upload.type.downcase == "article"
             if @upload.url.blank?

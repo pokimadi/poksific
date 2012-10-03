@@ -30,6 +30,7 @@ class Upload < ActiveRecord::Base
   validates :url, presence: true, length: { maximum: 60 }
   validates :title, presence: true
 
+
   def self.get_videos
     where("lower(type) = 'video'")
   end
