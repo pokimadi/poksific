@@ -1,6 +1,6 @@
 class UploadsController < ApplicationController
 
-  before_filter :signed_in_user, except: [:index, :show, :video, :article, :post]
+  before_filter :signed_in_user, except: [:index, :show, :video, :article]
   before_filter :correct_user, only: [:edit, :update,:destroy]
   before_filter :add_upload, only: :create
   
