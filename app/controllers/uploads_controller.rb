@@ -10,6 +10,7 @@ class UploadsController < ApplicationController
   def show
     @upload = Upload.find(params[:id])
     @upload.view = @upload.view + 1
+    @upload.save
   end
   
   def index
