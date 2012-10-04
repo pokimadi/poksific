@@ -1,0 +1,9 @@
+<% if @v_upload.empty?%>
+	<h1>You have no Uploads </h1>
+
+<% else %>
+	<h1><%= @v_upload.first.user.name %> Uploads </h1>
+	<ul class="users">
+		<%= render "uploads/display_upload" %>
+	</ul>
+<% end %>

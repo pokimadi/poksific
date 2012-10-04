@@ -1,6 +1,6 @@
 class UploadsController < ApplicationController
 
-  before_filter :signed_in_user, except: [:index, :show, :video, :article]
+  before_filter :signed_in_user, except: [:index, :show, :video, :article, :post]
   before_filter :add_upload, only: :create
   
   def new
@@ -9,15 +9,19 @@ class UploadsController < ApplicationController
   
   def show
     @upload = Upload.find(params[:id])
+    @upload.lock!
     @upload.view = @upload.view + 1
-    @upload.save
+    @upload.save!
   end
   
   def index
-    @v_upload = Upload.all
-    
+    @v_upload = Upload.all 
   end
   
+  def post
+    @v_upload = User.find(params[:id]).uploads
+  end
+
   def video
     @v_upload= Upload.get_videos  
   end

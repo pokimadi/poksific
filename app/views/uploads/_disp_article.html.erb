@@ -2,10 +2,11 @@
 <li>
 		<a href= <%= "/uploads/#{art.id}" %>>
 		<img src= <%= "/assets/rails.png" %> alt=''></img>
-		  <%
+		  <%	@art = art
 		  		title = art.title + "               " %>
 		  <h3><%= title[0,15] %></h3>
-		  <p>by: <%= art.user.name %> </p>
+		  <p>by: <%= render "uploads/art" %> 
+		</p>
 		</a>
 
 

@@ -1,0 +1,5 @@
+<% if signed_in? %>
+	<a href=<%= "/users/#{@art.user.id}" %>> <%= @art.user.name %> </a> 
+<% else %>
+	<%= @art.user.name %> 
+<% end %>

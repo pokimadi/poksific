@@ -1,12 +1,13 @@
 <% @v_upload.each do |art| %>
 <li>
+	<% @art = art %>
 	<% if art.embedid.blank? %>
 		<a href= <%= "/uploads/#{art.id}" %>>
 		<img src= <%= "/assets/rails.png" %> alt=''></img>
 		  <%
 		  		title = art.title + "               " %>
 		  <h3><%= title[0,15] %></h3>
-		  <p>by: <%= art.user.name %> </p>
+		  <p>by: <%= render "uploads/art" %> </p>
 		</a>
 	<% else %>
 		<ul class="thumbnails">
@@ -16,7 +17,7 @@
 			</a>
 			</li>
 			<li> <p><%= art.title %></p>
-					by <%= art.user.name %>
+					by <%= render "uploads/art" %> 
 			</li>
 		</ul>
 	<% end%>
