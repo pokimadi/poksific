@@ -9,7 +9,8 @@
   <div class="row-fluid">
     <div class="span3 wrap">
      <h1><%= @upload.title %><h1>
-     <p>Description: <%= @upload.about %><br>
+     <p>Description: <%= @upload.about %><br />
+     	Uploaded by: <%= @upload.user.name %><br />
      	views: <%= @upload.view %>	
      </p>
     </div>
@@ -23,10 +24,8 @@
   </div>
 </div>
 
-	<div style="width:100%; height:100px">
-		<p>
-		hhhhhhhhh hhhhhhhhhhhh hhhhhhhhhh hhhhh hhhhhh hhhhh hhhhhhhh hhh hhhh hhhhh hhhhhh hhhhhh hhhhhhhh hhhh hhhhh hhhhh hhhhhh  hhhhhhhh  hhhhhh hhh hhhhhh hhhhh hhhh hh hhhhhhh hhh
-			</p>
+	<div style="width:800px; height:50px; background-color:lightblue;">
+		<h3>Comments have not been implemented yet but will be done soon. </h3>
 	</div>
 
 <% end %>
