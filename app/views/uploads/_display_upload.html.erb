@@ -6,7 +6,7 @@
 		  <%
 		  		title = art.title + "               " %>
 		  <h3><%= title[0,15] %></h3>
-		  <p>by: user name </p>
+		  <p>by: <%= art.user.name %> </p>
 		</a>
 	<% else %>
 		<ul class="thumbnails">
@@ -16,7 +16,7 @@
 			</a>
 			</li>
 			<li> <p><%= art.title %></p>
-					by user name
+					by <%= art.user.name %>
 			</li>
 		</ul>
 	<% end%>
