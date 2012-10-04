@@ -1,0 +1,14 @@
+<%= provide(:title, 'Edit Upload') %>
+<h1>Edit Post.</h1>
+<div class="row">
+	<div class="span6 offset3">
+	<%= form_for(@upload) do |f| %>
+		<%= render 'shared/error_messages' , object: f.object %>
+		<%= f.label :title %>
+		<%= f.text_field :title %>
+		<%= f.label :about %>
+		<%= f.text_area :about ,:cols => 10, :rows => 10%></br>
+		<%= f.submit "Update Changes", class: "btn btn-large btn-primary"%>
+	<% end %>
+	</div>
+</div>

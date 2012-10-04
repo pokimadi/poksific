@@ -8,7 +8,7 @@ Poksific::Application.routes.draw do
 # get "static_pages/media"
   root to: 'uploads#index'
   resources :sessions, only: [:new, :create, :destroy]
-  resources :uploads, only: [:new, :create, :destroy, :show]
+  resources :uploads
 
 
   match '/upload', to: 'uploads#new'

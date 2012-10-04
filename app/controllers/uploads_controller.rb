@@ -1,6 +1,7 @@
 class UploadsController < ApplicationController
 
   before_filter :signed_in_user, except: [:index, :show, :video, :article, :post]
+  before_filter :correct_user, only: [:edit, :update]
   before_filter :add_upload, only: :create
   
   def new
@@ -12,6 +13,23 @@ class UploadsController < ApplicationController
     @upload.lock!
     @upload.view = @upload.view + 1
     @upload.save!
+  end
+  
+  def edit
+     
+  end
+  
+  def update
+    @upload = Upload.find(params[:id])
+    #TODO: Remove email update.
+    if @upload.update_attributes(params[:upload])
+      # Handle a successful update.
+      flash[:success] = "Post updated"
+      redirect_to @upload
+    else
+      render 'edit'
+    end
+    
   end
   
   def index
@@ -65,10 +83,11 @@ class UploadsController < ApplicationController
                @upload.url ="poksific.herokuapp.com"
             end
         end
-         
-       
     end
-  
-  
 
+  
+    def correct_user
+      @upload = Upload.find(params[:id])
+      redirect_to(root_path) unless current_user?(@upload.user)
+    end
 end
