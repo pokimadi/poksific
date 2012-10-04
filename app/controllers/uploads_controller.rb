@@ -1,7 +1,7 @@
 class UploadsController < ApplicationController
 
   before_filter :signed_in_user, except: [:index, :show, :video, :article, :post]
-  before_filter :correct_user, only: [:edit, :update]
+  before_filter :correct_user, only: [:edit, :update,:destroy]
   before_filter :add_upload, only: :create
   
   def new
@@ -18,6 +18,13 @@ class UploadsController < ApplicationController
   def edit
      
   end
+  
+  def destroy
+    Upload.find(params[:id]).destroy
+    flash[:success] = "Upload destroyed."
+    redirect_to uploads_path
+  end
+
   
   def update
     @upload = Upload.find(params[:id])
@@ -37,7 +44,7 @@ class UploadsController < ApplicationController
   end
   
   def post
-    @v_upload = User.find(params[:id]).uploads
+    @v_upload = User.find(current_user.id).uploads
   end
 
   def video
@@ -57,8 +64,6 @@ class UploadsController < ApplicationController
     end
   end
   
-  def destroy
-  end
   
   private
     def add_upload
