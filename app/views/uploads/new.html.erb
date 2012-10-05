@@ -2,6 +2,7 @@
 <h1>Tell us what's cool.</h1>
 <div class="row">
 	<div class="span6 offset3">
+	<% @upload.tags.build %>
 	<%= form_for(@upload) do |f| %>
 		<%= render 'shared/error_messages' , object: f.object %>
 		<%= f.label :title %>
@@ -12,6 +13,9 @@
 		<%= f.text_area :about ,:cols => 10, :rows => 10%>
 		<%= f.label :type %>
 		<%= f.select(:type, [["Video","Video"],["Article","Article"]]) %><br/>
+		<h2>Tags</h2>
+  			<%= render :partial => 'tags/form', :locals => {:form => f} %>
+  		<div class="actions">
 		<%= f.submit "Embed", class: "btn btn-large btn-primary"%>
 	<% end %>
 	</div>

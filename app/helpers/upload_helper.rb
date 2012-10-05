@@ -7,8 +7,8 @@ module UploadHelper
                      ]
   end
   
-  def show(upload)
-    
+  def join_tags(upload)
+    upload.tags.map { |t| t.name }.join(", ")
   end
   
   def video_id(source_url)

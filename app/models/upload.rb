@@ -19,16 +19,21 @@ class Upload < ActiveRecord::Base
   #Can not use type as a datbase name
   self.inheritance_column = "inheritance_type"
   
-  attr_accessible :about, :title, :type, :url
+  attr_accessible :about, :title, :type, :url, :tags_attributes
   validates :user_id, presence: true
   belongs_to :user
+  has_many :tags
 
   default_scope order: 'uploads.created_at DESC'
   
-  validates :about, presence: true, length: { maximum: 240 }
+  validates :about, presence: true, length: { maximum: 340 }
   validates :title, presence: true, length: { maximum: 60 }
   validates :url, presence: true, length: { maximum: 60 }
-  validates :title, presence: true
+  
+   
+ 
+  accepts_nested_attributes_for :tags, :allow_destroy => :true,
+    :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
 
 
   def self.get_videos

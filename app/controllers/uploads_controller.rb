@@ -8,6 +8,13 @@ class UploadsController < ApplicationController
     @upload= current_user.uploads.new
   end
   
+  def stag
+    load = "SELECT upload_id FROM TAGS
+    WHERE lower(name) like lower(?)"
+    @v_upload = Upload.where("id IN (#{load}) ", "%#{params[:search]}%")
+    render "uploads/index" 
+  end
+  
   def search
     load = "SELECT id FROM USERS
     WHERE lower(name) like lower(?)"

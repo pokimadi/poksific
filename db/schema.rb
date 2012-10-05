@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121003044039) do
+ActiveRecord::Schema.define(:version => 20121005174508) do
+
+  create_table "tags", :force => true do |t|
+    t.string   "name"
+    t.integer  "upload_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "tags", ["upload_id"], :name => "index_tags_on_upload_id"
 
   create_table "uploads", :force => true do |t|
     t.string   "type"

@@ -17,6 +17,7 @@ Poksific::Application.routes.draw do
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
 
+  match '/stag/:search' ,  to: 'uploads#stag' ,  :as =>'stag'
 
   match '/about', to: 'static_pages#about'
 

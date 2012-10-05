@@ -3,6 +3,7 @@ if @upload.embedid.blank? %>
 	<h1><%= @upload.title %></h1>
 	<p>by: <%= render "uploads/art" %>  <p>
 	<p><%= @upload.url %></p>
+	<p><%= render "uploads/tag" %></p>
 	<p><%= @upload.about %></p>
 
 <% else %>
@@ -12,7 +13,8 @@ if @upload.embedid.blank? %>
      <h1><%= @upload.title %><h1>
      <p>Description: <%= @upload.about %><br />
      	Uploaded by: <%= render "uploads/art" %> <br />
-     	views: <%= @upload.view %>	
+     	views: <%= @upload.view %><br/>	
+		<%= render "uploads/tag" %>
      </p>
     </div>
     <div class="span7">
