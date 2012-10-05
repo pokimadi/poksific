@@ -8,6 +8,13 @@ class UploadsController < ApplicationController
     @upload= current_user.uploads.new
   end
   
+  def search
+    load = "SELECT id FROM USERS
+    WHERE name like ?"
+    @v_upload = Upload.where("title Like ?  or user_id IN (#{load}) ", "%#{params[:search]}%", "%#{params[:search]}%")
+    render "uploads/post" 
+  end
+  
   def show
     @upload = Upload.find(params[:id])
     @upload.lock!

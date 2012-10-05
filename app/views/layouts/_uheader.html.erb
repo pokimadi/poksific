@@ -5,11 +5,13 @@
 
 		<ul id="menu_ul">
 			<li id="menu_ri">		 
-			    <form class="form-search" id = "search">
-				    <input type="text" class="input-medium search-query">
-				    <button type="submit" class="btn">Search</button>
-			    </form>
-				</li>
+				<%= form_tag('/search', class: "form-search", id: "search"  ) do %>
+				<input type="text" name="search" class="input-medium search-query">
+				<%= submit_tag "Search", class: "btn" %>
+				<% end %>
+		
+
+			</li>
 			<li id="menu_ri"><a id="done" href="/about"><b>About</b></a></li>
 		</ul>
 	</div>

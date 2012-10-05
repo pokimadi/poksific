@@ -23,6 +23,10 @@ Poksific::Application.routes.draw do
   #match '/contact', to: 'static_pages#contact'
   match 'post', to: 'uploads#post'
   
+  match "/search", to: 'uploads#search'
+  
+  match "/search/:search" => 'uploads#search', :as => 'search'
+  
   match 'contact' => 'contact#new', :as => 'contact', :via => :get
 
   match 'contact' => 'contact#create', :as => 'contact', :via => :post
