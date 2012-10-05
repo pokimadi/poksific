@@ -1,6 +1,7 @@
-<% if @upload.embedid.blank? %>
+<% @art = @upload 
+if @upload.embedid.blank? %>
 	<h1><%= @upload.title %></h1>
-	<p>by user name <p>
+	<p>by: <%= render "uploads/art" %>  <p>
 	<p><%= @upload.url %></p>
 	<p><%= @upload.about %></p>
 
@@ -10,7 +11,7 @@
     <div class="span3 wrap">
      <h1><%= @upload.title %><h1>
      <p>Description: <%= @upload.about %><br />
-     	Uploaded by: <%= @upload.user.name %><br />
+     	Uploaded by: <%= render "uploads/art" %> <br />
      	views: <%= @upload.view %>	
      </p>
     </div>
