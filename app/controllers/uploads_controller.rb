@@ -10,8 +10,8 @@ class UploadsController < ApplicationController
   
   def search
     load = "SELECT id FROM USERS
-    WHERE name like ?"
-    @v_upload = Upload.where("title Like ?  or user_id IN (#{load}) ", "%#{params[:search]}%", "%#{params[:search]}%")
+    WHERE lower(name) like lower(?)"
+    @v_upload = Upload.where("lower(title) Like lower(?)  or user_id IN (#{load}) ", "%#{params[:search]}%", "%#{params[:search]}%")
     render "uploads/index" 
   end
   
