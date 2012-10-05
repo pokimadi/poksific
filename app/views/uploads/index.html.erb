@@ -1,6 +1,10 @@
 <h1>Poksi Tells You!</h1>
-<p>New stories of the day, check it out!</p>
-
-<ul class="users">
-	<%= render "uploads/display_upload" %>
-</ul>
+<% if @v_upload.empty? %>
+	<p>Nothing matched search query try again.</p>
+<% else %>
+	<p>New stories of the day, check it out!</p>
+	
+	<ul class="users">
+		<%= render "uploads/display_upload" %>
+	</ul>
+<% end %>
