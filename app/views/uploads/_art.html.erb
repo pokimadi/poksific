@@ -1,8 +1,8 @@
 <% if signed_in? %>
-	<a href=<%= "/users/#{@art.user.id}" %>> <%= @art.user.name %> </a> 
+	<a href=<%= "/users/#{@art.user.id}" %>> <%= @art.user.name %> </a></br> 
 		<% if current_user?(@art.user) %>
-		| <a href=<%= "/uploads/#{@art.id}/edit" %>> Edit </a> | 
-		<%= link_to "Delete", @art , method: :delete, confirm: "You sure?" %>
+		 <a  class="btn btn-info" href=<%= "/uploads/#{@art.id}/edit" %>> Edit </a>  
+		<%= link_to "Delete", @art , class:"btn btn-danger" ,method: :delete, confirm: "You sure?" %>
 	<%end%>
 <% else %>
 	<%= @art.user.name %> 

@@ -28,11 +28,11 @@ class Upload < ActiveRecord::Base
   
   validates :about, presence: true, length: { maximum: 600 }
   validates :title, presence: true, length: { maximum: 80 }
-  validates :url, presence: true, length: { maximum: 100 }
+  validates :url, presence: true, length: { maximum: 160 }
   
-   
+   #TODO:might want to mak tag a many to many relationship for speed.
  
-  accepts_nested_attributes_for :tags, :allow_destroy => :true,
+  accepts_nested_attributes_for :tags, :allow_destroy => :true, 
     :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
 
 

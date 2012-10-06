@@ -6,7 +6,7 @@
 		<ul id="menu_ul">
 			<li id="menu_ri">		 
 				<%= form_tag('/search', class: "form-search", id: "search"  ) do %>
-				<input type="text" name="search" class="input-medium search-query">
+				<input type="text" name="search",  placeholder="Search..." class="input-medium search-query">
 				<%= submit_tag "Search", class: "btn" %>
 				<% end %>
 		
