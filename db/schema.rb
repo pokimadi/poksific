@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121005174508) do
+ActiveRecord::Schema.define(:version => 20121006191344) do
 
   create_table "tags", :force => true do |t|
     t.string   "name"
@@ -26,12 +26,12 @@ ActiveRecord::Schema.define(:version => 20121005174508) do
     t.string   "type"
     t.string   "url"
     t.string   "title"
-    t.string   "about"
+    t.string   "about",      :limit => 10000
     t.integer  "user_id"
     t.string   "embedid"
     t.integer  "view"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
   end
 
   add_index "uploads", ["user_id", "created_at"], :name => "index_uploads_on_user_id_and_created_at"
