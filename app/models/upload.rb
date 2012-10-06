@@ -26,9 +26,9 @@ class Upload < ActiveRecord::Base
 
   default_scope order: 'uploads.created_at DESC'
   
-  validates :about, presence: true, length: { maximum: 340 }
-  validates :title, presence: true, length: { maximum: 60 }
-  validates :url, presence: true, length: { maximum: 60 }
+  validates :about, presence: true, length: { maximum: 600 }
+  validates :title, presence: true, length: { maximum: 80 }
+  validates :url, presence: true, length: { maximum: 100 }
   
    
  

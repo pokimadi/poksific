@@ -43,7 +43,7 @@ class UploadsController < ApplicationController
   def update
     @upload = Upload.find(params[:id])
     #TODO: Remove email update.
-    if @upload.update_attributes(:title => params[:upload][:title], :about => params[:upload][:about])
+    if @upload.update_attributes(:title => params[:upload][:title], :about => params[:upload][:about], :tags_attributes => params[:upload][:tags_attributes])
       # Handle a successful update.
       flash[:success] = "Post updated"
       redirect_to @upload
