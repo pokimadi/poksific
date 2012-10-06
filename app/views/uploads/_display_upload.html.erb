@@ -2,13 +2,7 @@
 <li>
 	<% @art = art %>
 	<% if art.embedid.blank? %>
-		<a href= <%= "/uploads/#{art.id}" %>>
-		<img src= <%= "/assets/rails.png" %> alt=''></img>
-		  <%
-		  		title = art.title + "               " %>
-		  <h3><%= title[0,15] %></h3>
-		  <p>by: <%= render "uploads/art" %> </p>
-		</a>
+		<%= render "uploads/disp_art"%>
 	<% else %>
 		<ul class="thumbnails">
 			<li class="span2">
@@ -16,7 +10,7 @@
 				<img src= <%= "http://img.youtube.com/vi/#{art.embedid}/0.jpg" %> alt="">
 			</a>
 			</li>
-			<li> <p><%= art.title %></p>
+			<li> <p><%= truncate( @art.title , :length =>24 , :separator => ' ' )  %></p>
 					by <%= render "uploads/art" %> 
 			</li>
 		</ul>

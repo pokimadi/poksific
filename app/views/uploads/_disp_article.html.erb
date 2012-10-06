@@ -1,14 +1,6 @@
-<% @v_upload.each do |art| %>
+<% @v_upload.each do |art| 
+	@art= art%>
 <li>
-		<a href= <%= "/uploads/#{art.id}" %>>
-		<img src= <%= "/assets/rails.png" %> alt=''></img>
-		  <%	@art = art
-		  		title = art.title + "               " %>
-		  <h3><%= title[0,15] %></h3>
-		  <p>by: <%= render "uploads/art" %> 
-		</p>
-		</a>
-
-
+	<%= render "uploads/disp_art" %>
 </li>
 <% end %>

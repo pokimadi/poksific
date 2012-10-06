@@ -2,7 +2,9 @@
 	<h1>You have no Uploads </h1>
 
 <% else %>
-	<h1><%= @v_upload.first.user.name %> Uploads </h1>
+	<h3><%= @v_upload.first.user.name %> Uploads </h3>
+	<% size = @v_upload.count %>
+	<p>you have <%=  pluralize( size, 'upload')%>
 	<ul class="users">
 		<%= render "uploads/display_upload" %>
 	</ul>

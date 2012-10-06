@@ -4,12 +4,8 @@
 		<a href= <%= "/uploads/#{vid.id}" %>>
 		<div class="thumbnail">
 		  <img src= <%= "http://img.youtube.com/vi/#{vid.embedid}/0.jpg" %> alt=''>
-		  <%
-		  		title = vid.title + "               "
-		  		about = vid.about + "               "
-		  %>
-		  <h3><%= title[0,15] %></h3>
-		  <p><%= about[0,33] %></p>
+		  <h3><%= truncate( vid.title , :length =>18 , :separator => ' ' )  %></h3>
+		  <p><%= truncate( vid.about , :length =>30 , :separator => ' ' )  %></p>
 		</div>
 		</a>
 	</li>
