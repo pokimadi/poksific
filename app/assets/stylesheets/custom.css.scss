@@ -70,4 +70,11 @@ a.no_style{
   text-decoration:none;
   color:black; 
 }
+div.middle
+{
+  border-top: 1px solid $grayLighter;
+  width: 700px; 
+  margin: auto;
+  text-align: center;
+}
 
