@@ -1,5 +1,5 @@
-<a href= <%= "/uploads/#{@art.id}" %>>
-<img src= <%= "/assets/rails.png" %> alt=''></img>
-  <h3><%= truncate( @art.title , :length =>18 , :separator => ' ' )  %></h3>
-  <p>by: <%= render "uploads/art" %> </p>
+<a href= <%= "/uploads/#{@art.id}" %> class= "no_style">
+	<img src= <%= "/assets/rails.png" %> alt=''></img>
+	<h3><%= truncate( @art.title , :length =>18 , :separator => ' ' )  %></h3>
 </a>
+  <p>by: <%= render "uploads/art" %> </p>

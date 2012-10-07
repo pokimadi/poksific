@@ -1,7 +1,7 @@
 <% @v_upload.each do |vid| %>
 
 	<li class="span3">
-		<a href= <%= "/uploads/#{vid.id}" %>>
+		<a href= <%= "/uploads/#{vid.id}" %> class="no_style">
 		<div class="thumbnail">
 		  <img src= <%= "http://img.youtube.com/vi/#{vid.embedid}/0.jpg" %> alt=''>
 		  <h3><%= truncate( vid.title , :length =>18 , :separator => ' ' )  %></h3>

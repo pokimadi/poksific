@@ -61,4 +61,13 @@ a{
 .tag{
   color:blue;
 }
+a.no_style:hover{
+  text-decoration:none;
+  color:blue;
+  
+}
+a.no_style{
+  text-decoration:none;
+  color:black; 
+}
 
