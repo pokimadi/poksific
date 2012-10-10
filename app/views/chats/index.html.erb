@@ -1,0 +1,28 @@
+<ul class="users">
+	<% @chat.each do |chat| %>
+		<% chat.users.each do |user| 
+			if !(current_user?(user)) %>
+				<% if seen?(chat) %>
+					<li id="mesg_ind" style="background-color:lightgray; ">
+				<% else %>
+					<li id="mesg_ind" >
+				<% end %>
+					<%= link_to gravatar_for(user), user %>
+					<span class="user">
+						<%= link_to user.name, user %>
+					</span>
+					<span class="content"><%= chat.conversations.first.message %>
+					<a href= <%= "/message/#{chat.id}" %> style="float:right" ><p>
+		  				<button class="btn btn-large btn-primary" type="button">Show Messages</button>
+					</p></a>
+					</span>
+					<span class="timestamp">
+						Posted <%= time_ago_in_words(chat.conversations.first.created_at) %> ago.
+					</span>
+	
+			
+				</li>
+			<% end %>
+		<% end %>
+	<% end %>
+</ul>

@@ -50,6 +50,14 @@ margin-right: 10px;
   }
 }
 
+.content {
+  display: block;
+}
+
+.timestamp {
+  color: $grayLight;
+}
+
 .wrap{
   word-wrap:break-word;
   
@@ -77,4 +85,5 @@ div.middle
   margin: auto;
   text-align: center;
 }
+
 

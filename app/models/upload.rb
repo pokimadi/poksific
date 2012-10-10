@@ -22,7 +22,7 @@ class Upload < ActiveRecord::Base
   attr_accessible :about, :title, :type, :url, :tags_attributes
   validates :user_id, presence: true
   belongs_to :user
-  has_many :tags
+  has_many :tags, dependent: :destroy
 
   default_scope order: 'uploads.created_at DESC'
   

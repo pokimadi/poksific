@@ -8,10 +8,19 @@ Poksific::Application.routes.draw do
 # get "static_pages/media"
   root to: 'uploads#index'
   resources :sessions, only: [:new, :create, :destroy]
+  resources :chats, only: [:index, :show, :destroy]
   resources :uploads
 
 
   match '/upload', to: 'uploads#new'
+  
+  match '/chat/:id', to: 'chats#new' , :as => 'chat', :via => :get
+  
+  match '/message/:id', to: 'chats#show' , :as => 'msg'
+  
+  match '/chat/:id', to: 'chats#create' , :as => 'chat', :via => :post
+  
+  match '/message', to: 'chats#index' ,  :as => 'message'
   
   match '/signup', to: 'users#new'
   match '/signin', to: 'sessions#new'

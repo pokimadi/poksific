@@ -5,6 +5,13 @@
 				<%= gravatar_for @user , size:80 %>
 				<%= @user.name %>
 			</h1>
+			<% if !(current_user?(@user)) %>
+				<a href= <%= "/chat/#{@user.id}" %> >
+					<p>
+		  				<button class="btn btn-large btn-primary" type="button">Send Message</button>
+					</p
+				</a>
+			<% end %>
 
 		</section>
 	</aside>

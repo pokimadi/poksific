@@ -43,6 +43,15 @@ module SessionsHelper
   def store_location
     session[:return_to] = request.fullpath
   end
+  
+  def unread
+    current_user.communications.where(:seen => false).count
+  end
+  
+  def seen?(chat)
+    com = Communication.where(:user_id => current_user.id, :chat_id => chat.id).first
+    com.seen == true
+  end
 
 
 

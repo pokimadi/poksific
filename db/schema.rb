@@ -11,7 +11,33 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121006191344) do
+ActiveRecord::Schema.define(:version => 20121010011446) do
+
+  create_table "chats", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "communications", :force => true do |t|
+    t.integer  "chat_id"
+    t.integer  "user_id"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "seen",       :default => false
+  end
+
+  add_index "communications", ["chat_id"], :name => "index_communications_on_chat_id"
+  add_index "communications", ["user_id"], :name => "index_communications_on_user_id"
+
+  create_table "conversations", :force => true do |t|
+    t.integer  "chat_id"
+    t.string   "message",    :limit => 10000
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+    t.integer  "user_id"
+  end
+
+  add_index "conversations", ["chat_id"], :name => "index_conversations_on_chat_id"
 
   create_table "tags", :force => true do |t|
     t.string   "name"

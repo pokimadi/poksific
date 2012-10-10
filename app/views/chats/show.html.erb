@@ -1,0 +1,25 @@
+<h2> Conversation with <%= @user.name %></h2>
+<ul class="users">
+	<% @chat.conversations.each do |conv| %>
+				<li id="mesg_ind">
+					<%  user = @user
+						if current_user.id == conv.user_id
+							user = current_user
+						end
+					%>
+					<%= link_to gravatar_for(user), user %>
+					<span class="content"><%= conv.message %>
+
+					</span>
+					<span class="timestamp">
+						Posted <%= time_ago_in_words(conv.created_at) %> ago.
+					</span>
+				</li>
+	<% end 
+	@chat = Chat.new %>
+	
+</ul>
+<div class="row">
+	<%= render "chats/form" %>
+</div>
+					
