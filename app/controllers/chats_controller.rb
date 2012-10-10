@@ -18,6 +18,7 @@ class ChatsController < ApplicationController
       set_chat
       if @chat.save
         if @add == "yes"
+          @chat.conversations.first.update_attributes(:user_id => current_user.id)
           @chat.users << (current_user)
           @chat.users << (@user)
         else
