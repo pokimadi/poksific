@@ -2,33 +2,33 @@
 if @upload.embedid.blank? %>
 	<h1><%= @upload.title %></h1>
 	<p>by: <%= render "uploads/art" %>  </p>
-	<p><%= @upload.url %></p>
+	<p>url: <a href = <%= @upload.url %> class="tag" ><%= @upload.url %></a></p>
 	<p><%= render "uploads/tag" %></p>
 	<p><%= @upload.about %></p>
 
 <% else %>
-<div class="container-fluid">
-  <div class="row-fluid">
-    <div class="span3 wrap">
-     <p><h3><%= @upload.title %></h3></p>
-     <p>Description: <%= @upload.about %><br />
-     	Uploaded by: <%= render "uploads/art" %> <br />
-     	views: <%= @upload.view %><br/>	
-		<%= render "uploads/tag" %>
-     </p>
-    </div>
-    <div class="span7">
-      <!--Body content-->
-      	<iframe title="YouTube video player" 
-	width="560" height="350" 
-	src= <%="http://www.youtube.com/embed/#{@upload.embedid}" %>
-	frameborder="0" allowfullscreen></iframe>
-    </div>
-  </div>
-</div>
+	<div class="container-fluid">
+	  <div class="row-fluid">
+	    <div class="span3 wrap">
+	     <p><h3><%= @upload.title %></h3></p>
+	     <p>Description: <%= @upload.about %><br />
+	     	Uploaded by: <%= render "uploads/art" %> <br />
+	     	views: <%= @upload.view %><br/>	
+			<%= render "uploads/tag" %>
+	     </p>
+	    </div>
+	    <div class="span7">
+	      <!--Body content-->
+	      	<iframe title="YouTube video player" 
+		width="560" height="350" 
+		src= <%="http://www.youtube.com/embed/#{@upload.embedid}" %>
+		frameborder="0" allowfullscreen></iframe>
+	    </div>
+	  </div>
+	</div>
+<% end %>
 
 	<div style="width:800px; height:50px; background-color:lightblue;">
 		<h3>Comments have not been implemented yet but will be done soon. </h3>
 	</div>
 
-<% end %>

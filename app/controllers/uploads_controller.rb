@@ -69,9 +69,10 @@ class UploadsController < ApplicationController
     @v_upload= Upload.get_articles  
   end
   
-  def create
+  def create 
     if @upload.save
       flash[:success] = "Item was created!"
+      @upload.update_attributes( :url =>"http://poksific.herokuapp.com/uploads/#{@upload.id}") unless @update == false
       redirect_to root_path
     else
       render 'new'
@@ -99,8 +100,12 @@ class UploadsController < ApplicationController
           end
         elsif @upload.type.downcase == "article"
             if @upload.url.blank?
-               @upload.url ="poksific.herokuapp.com"
+               @update = true
+               @upload.url ="http://poksific.herokuapp.com/uploads"
+            else
+               @update = false 
             end
+            
         end
     end
 
