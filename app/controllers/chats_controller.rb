@@ -22,6 +22,7 @@ class ChatsController < ApplicationController
           @chat.users << (current_user)
           @chat.users << (@user)
         else
+          @chat.touch
           @chat.communications.each do |com|
             com.update_attributes(:seen => false)
           end
