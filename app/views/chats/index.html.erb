@@ -1,3 +1,4 @@
+<h1><%= current_user.name %> you have <%= pluralize( @chat.count, 'message') %> in your chat box. </h1>
 <ul class="users">
 	<% @chat.each do |chat| %>
 		<% chat.users.each do |user| 

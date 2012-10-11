@@ -53,6 +53,19 @@ module SessionsHelper
     com.seen == true
   end
 
+  def welcome(n_user)
+    chat = Chat.new
+    user = User.where(:admin => true).first
+    chat.conversations.new(:message => "Dear #{n_user.name} ,\n" +
+    "    Welcome to Poksific.herokuapp.com. The site is still in development,\n" +
+    "so feel free to request any material or other changes that you feel \n " +
+    "might be an improve the website. Anyways on lighter note have fun  \n" +
+    "and share material with the community. " , :user_id => user.id )
+    if chat.save
+       n_user.chats<<(chat)
+       user.chats<<(chat)
+    end
+  end
 
 
   

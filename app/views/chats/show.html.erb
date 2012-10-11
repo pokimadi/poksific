@@ -8,7 +8,7 @@
 						end
 					%>
 					<%= link_to gravatar_for(user), user %>
-					<span class="content"><%= conv.message %>
+					<span class="content"><%= simple_format(conv.message) %>
 
 					</span>
 					<span class="timestamp">

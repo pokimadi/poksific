@@ -22,6 +22,7 @@ class UsersController < ApplicationController
     if @user.save
       # Handle a successful save.
       flash[:success] = "Welcome to the poksific! Keep up to date with Life."
+      welcome(@user)
       redirect_to @user
 
     else
