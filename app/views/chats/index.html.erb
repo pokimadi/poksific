@@ -12,7 +12,7 @@
 					<span class="user">
 						<%= link_to user.name, user %>
 					</span>
-					<span class="content"><%= chat.conversations.last.message %>
+					<span class="content"><%= truncate( chat.conversations.last.message , :length =>26 , :separator => ' ' ) %>
 					<a href= <%= "/message/#{chat.id}" %> style="float:right" ><p>
 		  				<button class="btn btn-large btn-primary" type="button">Show Messages</button>
 					</p></a>
