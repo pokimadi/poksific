@@ -9,11 +9,15 @@ Poksific::Application.routes.draw do
   root to: 'uploads#index'
   resources :sessions, only: [:new, :create, :destroy]
   resources :chats, only: [:index, :show, :destroy]
-  resources :uploads
 
 
   match '/upload', to: 'uploads#new'
-  
+  match '/uploads/:id', to: 'uploads#show', :as => 'upload'
+ 
+  resources :uploads do 
+    resources :comments
+    
+  end 
   match '/chat/:id', to: 'chats#new' , :as => 'chat', :via => :get
   
   match '/message/:id', to: 'chats#show' , :as => 'msg'

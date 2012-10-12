@@ -67,6 +67,10 @@ module SessionsHelper
     end
   end
 
+def user(id)
+  User.find(id)
+end
+  
 
   
 end

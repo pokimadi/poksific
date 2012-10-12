@@ -11,12 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121010011446) do
+ActiveRecord::Schema.define(:version => 20121011214427) do
 
   create_table "chats", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "comments", :force => true do |t|
+    t.integer  "user_id"
+    t.text     "body"
+    t.integer  "upload_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "comments", ["upload_id"], :name => "index_comments_on_upload_id"
 
   create_table "communications", :force => true do |t|
     t.integer  "chat_id"

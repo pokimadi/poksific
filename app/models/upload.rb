@@ -23,6 +23,7 @@ class Upload < ActiveRecord::Base
   validates :user_id, presence: true
   belongs_to :user
   has_many :tags, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   default_scope order: 'uploads.created_at DESC'
   
