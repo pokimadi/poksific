@@ -5,7 +5,7 @@
 					<%  user = comment.user %>
 					<%= link_to gravatar_for(user), user %>
 					<span class="content"><%= simple_format(comment.body) %>
-						<% if current_user?(upload.user) || current_user?(comment.user) || current_user.admin? %>
+						<% if current_user?(@upload.user) || current_user?(comment.user) || current_user.admin? %>
 						<a href= <%= "/uploads/#{@upload.id}/comments/#{comment.id}" %> 
 							style="float:right" data-confirm="You sure?" data-method="delete" rel="nofollow"><p>
 		  				<button class="btn btn-large btn-danger" type="button">Delete Comment</button>
