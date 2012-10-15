@@ -12,5 +12,8 @@ class StaticPagesController < ApplicationController
   def media
   end
   
+  def design
+  end
+  
 
 end

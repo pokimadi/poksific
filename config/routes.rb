@@ -33,7 +33,7 @@ Poksific::Application.routes.draw do
   match '/stag/:search' ,  to: 'uploads#stag' ,  :as =>'stag'
 
   match '/about', to: 'static_pages#about'
-
+  match '/design', to: 'static_pages#design'
   #match '/contact', to: 'static_pages#contact'
   match 'post', to: 'uploads#post'
   

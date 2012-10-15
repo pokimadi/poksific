@@ -4,7 +4,7 @@
 		<%= render 'shared/error_messages' , object: f.object %>
 		<%= f.fields_for :conversations do |form| %>
 			<%= form.label :message, 'Message:' %>
-			<textarea rows="3" cols="40" id="message" name="chat[conversations_attributes][0][message]"></textarea>
+			<textarea rows="3" class="field span4" id="message" required="required" name="chat[conversations_attributes][0][message]"></textarea>
 		<% end %>
   		<div class="actions">
 			<%= f.submit "Send", class: "btn btn-large btn-primary"%>
