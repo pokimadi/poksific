@@ -57,7 +57,7 @@ class UploadsController < ApplicationController
   end
   
   def index
-    @v_upload = Upload.all 
+    @v_upload = Upload.paginate(page: params[:page], per_page: 20)
   end
   
   def post
