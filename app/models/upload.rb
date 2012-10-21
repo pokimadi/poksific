@@ -37,11 +37,11 @@ class Upload < ActiveRecord::Base
     :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
 
 
-  def self.get_videos
-    where("lower(type) = 'video'").paginate(page: params[:page], per_page: 20)
+  def self.get_videos(dig)
+    where("lower(type) = 'video'").paginate(page: dig, per_page: 20)
   end
 
-  def self.get_articles
-    where("lower(type) = 'article'").paginate(page: params[:page], per_page: 20)
+  def self.get_articles(dig)
+    where("lower(type) = 'article'").paginate(page: dig, per_page: 20)
   end
 end

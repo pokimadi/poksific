@@ -65,11 +65,11 @@ class UploadsController < ApplicationController
   end
 
   def video
-    @v_upload= Upload.get_videos  
+    @v_upload= Upload.get_videos(params[:page])
   end
   
   def article
-    @v_upload= Upload.get_articles  
+    @v_upload= Upload.get_articles(params[:page]) 
   end
   
   def create 
