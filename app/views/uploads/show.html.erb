@@ -28,16 +28,7 @@ if @upload.embedid.blank? %>
 	</div>
 <% end %>
 
-<div class="mid">
-	<h2>Add a comment:</h2>
-		<%= form_for([@upload , @upload.comments.build]) do |f| %>
-		  <textarea rows="3" class="field span4" required="required"  name ="comment[body]" placeholder="Comment..." ></textarea>
-		  <div class="actions">
-		    <%= f.submit %>
-		  </div>
-		<% end %>
-	<h2>Comments</h2>
-		<%= render "comments/show"%>
+<%= render "comments/show"%>
 
 
 </div>

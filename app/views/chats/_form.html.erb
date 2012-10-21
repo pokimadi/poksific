@@ -1,6 +1,6 @@
 <div class="span7 offset1">
 	<% @chat.conversations.build %>
-	<%= form_for(@chat, url:chat_path(@user.id)) do |f| %>
+	<%= form_for(@chat, url:chat_path(@user.id), remote: true ) do |f| %>
 		<%= render 'shared/error_messages' , object: f.object %>
 		<%= f.fields_for :conversations do |form| %>
 			<%= form.label :message, 'Message:' %>

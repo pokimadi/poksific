@@ -27,7 +27,10 @@ class ChatsController < ApplicationController
             com.update_attributes(:seen => false)
           end
         end
-        redirect_to msg_path(@chat.id)
+        respond_to do |format|
+          format.html { redirect_to msg_path(@chat.id) }
+          format.js
+        end
       else
         render 'new'
       end
