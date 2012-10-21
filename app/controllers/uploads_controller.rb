@@ -61,7 +61,7 @@ class UploadsController < ApplicationController
   end
   
   def post
-    @v_upload = User.find(current_user.id).uploads
+    @v_upload = User.find(current_user.id).uploads.paginate(page: params[:page], per_page: 20)
   end
 
   def video

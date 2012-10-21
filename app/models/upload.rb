@@ -38,10 +38,10 @@ class Upload < ActiveRecord::Base
 
 
   def self.get_videos
-    where("lower(type) = 'video'")
+    where("lower(type) = 'video'").paginate(page: params[:page], per_page: 20)
   end
 
   def self.get_articles
-    where("lower(type) = 'article'")
+    where("lower(type) = 'article'").paginate(page: params[:page], per_page: 20)
   end
 end

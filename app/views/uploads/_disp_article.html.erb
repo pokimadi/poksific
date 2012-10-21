@@ -1,6 +1,8 @@
+<%= will_paginate @v_upload %>
 <% @v_upload.each do |art| 
 	@art= art%>
 <li>
 	<%= render "uploads/disp_art" %>
 </li>
 <% end %>
+<%= will_paginate @v_upload %>
