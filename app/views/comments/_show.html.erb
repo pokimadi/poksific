@@ -16,14 +16,17 @@
 							<tr><td>
 							<%= link_to gravatar_for(user), user %>
 							</td><td>
-							<span class="content"><%= simple_format(comment.body) %>
-							<% if current_user?(@upload.user) || current_user?(comment.user) || current_user.admin? %>
-								<a href= <%= "/uploads/#{@upload.id}/comments/#{comment.id}" %> 
-									style="float:right" data-confirm="You sure?" data-method="delete"  
-									data-remote="true" rel="nofollow"><p>
-				  				<button class="btn btn-large btn-danger" type="button">Delete Comment</button>
-				  				</p></a>
-				  			<% end %>
+							<span class="content"><%= simple_format(word_wrap(comment.body)) %>
+							<% if !(current_user.nil?) %> 
+							
+								<% if current_user?(@upload.user) || current_user?(comment.user) || current_user.admin? %>
+									<a href= <%= "/uploads/#{@upload.id}/comments/#{comment.id}" %> 
+										style="float:right" data-confirm="You sure?" data-method="delete"  
+										data-remote="true" rel="nofollow"><p>
+					  				<button class="btn btn-large btn-danger" type="button">Delete Comment</button>
+					  				</p></a>
+					  			<% end %>
+					  		<% end %>
 							</span>
 							<span class="timestamp">
 								Posted <%= time_ago_in_words(comment.created_at) %> ago.
