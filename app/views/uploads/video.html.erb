@@ -1,6 +1,8 @@
 <h1>All Videos</h1>
 <div class="middle">
+	<%= will_paginate @v_upload %>
 	<ul class="thumbnails">
 		<%= render 'uploads/disp_video' %>
 	</ul>
+	<%= will_paginate @v_upload %>
 </div>
