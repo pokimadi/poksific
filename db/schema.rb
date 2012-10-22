@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121011214427) do
+ActiveRecord::Schema.define(:version => 20121022063553) do
 
   create_table "chats", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -66,8 +66,9 @@ ActiveRecord::Schema.define(:version => 20121011214427) do
     t.integer  "user_id"
     t.string   "embedid"
     t.integer  "view"
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
+    t.datetime "created_at",                                         :null => false
+    t.datetime "updated_at",                                         :null => false
+    t.string   "source",                      :default => "youtube"
   end
 
   add_index "uploads", ["user_id", "created_at"], :name => "index_uploads_on_user_id_and_created_at"

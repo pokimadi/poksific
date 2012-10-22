@@ -18,11 +18,17 @@ if @upload.embedid.blank? %>
 	     </p>
 	    </div>
 	    <div class="span7">
-	      <!--Body content-->
-	      	<iframe title="YouTube video player" 
-		width="560" height="350" 
-		src= <%="http://www.youtube.com/embed/#{@upload.embedid}" %>
-		frameborder="0" allowfullscreen></iframe>
+	    <% if @upload.source == 'daily' %>
+	    	<iframe frameborder="0" width="560" height="350" 
+	    	src= <%= "http://www.dailymotion.com/embed/video/#{@upload.embedid}" %>>
+	    	</iframe>
+	    <% else %>
+		     <!--Body content-->
+		    <iframe title="YouTube video player" 
+			width="560" height="350" 
+			src= <%= "http://www.youtube.com/embed/#{@upload.embedid}" %>
+			frameborder="0" allowfullscreen></iframe>
+		<% end %>
 	    </div>
 	  </div>
 	</div>

@@ -95,6 +95,9 @@ class UploadsController < ApplicationController
           else
             if @upload.url[/youtu\.be\/([^\?]*)/]
               @upload.embedid= $1
+            elsif @upload.url[ /.*\/www.dailymotion.com\/.*video(\/|=)(([a-zA-Z]|\d){6}).*/]
+              @upload.embedid= $2
+              @upload.source = 'daily'
             else
               # Regex from # http://stackoverflow.com/questions/3452546/javascript-regex-how-to-get-youtube-video-id-from-url/4811367#4811367
               @upload.url[/^.*((v\/)|(embed\/)|(watch\?))\??v?=?([^\&\?]*).*/]

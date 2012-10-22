@@ -8,7 +8,11 @@
 		<ul class="thumbnails">
 			<li class="span2">
 				<a href=<%= "/uploads/#{art.id}" %> class="thumbnail">
-				<img src= <%= "http://img.youtube.com/vi/#{art.embedid}/0.jpg" %> alt="">
+				<% if art.source == 'daily' %>
+					<img src= <%= "http://www.dailymotion.com/thumbnail/video/#{art.embedid}" %> alt=''>
+				<% else %>
+					<img src= <%= "http://img.youtube.com/vi/#{art.embedid}/0.jpg" %> alt="">
+				<% end %>
 			</a>
 			</li>
 			<li> <p><%= truncate( @art.title , :length =>24 , :separator => ' ' )  %></p>
