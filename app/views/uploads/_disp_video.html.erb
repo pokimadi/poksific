@@ -1,17 +1,22 @@
-
+<% count = 1 %>
 <% @v_upload.each do |vid| %>
+	<% @vid = vid
+	if (count == 2) %>
+		<% count += 1%>
+		<%= render 'uploads/vid_holder' %>
+		
+	<% elsif count == 1 
+		count += 1 %>
+		<ul class="thumbnails">
+		<%= render 'uploads/vid_holder' %>	
+		
+	<%else 
+		count = 1 %>
+		<%= render 'uploads/vid_holder' %>	
+		</ul>
+		
+		
+	<% end %>
 
-	<li class="span3">
-		<a href= <%= "/uploads/#{vid.id}" %> class="no_style">
-		<div class="thumbnail">
-		<% if vid.source == 'daily' %>
-			<img src= <%= "http://www.dailymotion.com/thumbnail/video/#{vid.embedid}" %> alt=''>
-		<% else %>
-		  <img src= <%= "http://img.youtube.com/vi/#{vid.embedid}/0.jpg" %> alt=''>
-		<% end %>
-		  <h3><%= truncate( vid.title , :length =>18 , :separator => ' ' )  %></h3>
-		  <p><%= truncate( vid.about , :length =>30 , :separator => ' ' )  %></p>
-		</div>
-		</a>
-	</li>
 <% end %>
+</ul>
