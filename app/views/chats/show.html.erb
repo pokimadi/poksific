@@ -1,3 +1,16 @@
+<%= javascript_tag do -%>
+$(document).ready(
+  function(){
+    setInterval(function(){
+      $.ajax({
+        url: "<%= request.fullpath %>",
+        type: "GET",
+        dataType: "script"
+    });
+  }, 3000 );
+});
+<% end -%>
+
 <h2> Conversation with <%= @user.name %></h2>
 <div id="converse">
 	<%= render "chats/converse" %>

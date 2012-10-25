@@ -55,6 +55,10 @@ class ChatsController < ApplicationController
       communication = Communication.where(:user_id => current_user.id, :chat_id => @chat.id)
       communication[0].update_attributes(:seen => true)
     end 
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
   
   def index
