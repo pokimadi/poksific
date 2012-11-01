@@ -21,7 +21,7 @@ class UploadsController < ApplicationController
     tag = "SELECT upload_id FROM TAGS
     WHERE lower(name) like lower(?)"
     @v_upload = Upload.where("lower(title) Like lower(?)  or user_id IN (#{load}) or id IN (#{tag})", 
-    "%#{params[:search]}%", "%#{params[:search]}%","%#{params[:search]}%")
+    "%#{params[:search]}%", "%#{params[:search]}%","%#{params[:search]}%").paginate(page: params[:page], per_page: 20)
     render "uploads/index" 
   end
   

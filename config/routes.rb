@@ -12,7 +12,7 @@ Poksific::Application.routes.draw do
 
 
   match '/upload', to: 'uploads#new'
-  match '/uploads/:id', to: 'uploads#show', :as => 'upload'
+  match '/uploads/:id', to: 'uploads#show', :as => 'upload', :via => :get
  
   resources :uploads do 
     resources :comments
