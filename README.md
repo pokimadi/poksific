@@ -3,18 +3,17 @@ This is a Sample application for poksific made using ruby on rails.
 By Diepriye Pokima 
 
 == Getting Application Started
-
-1. At the command prompt, create a new Rails application:
-       <tt>rails new myapp</tt> (where <tt>myapp</tt> is the application name)
        
-2. Clone Device to your local disk using Git:
+1. Clone Device to your local disk using Git:
+	   
 	   <tt> git clone git@github.com:pokimadi/poksific.git </tt>
 
-3. Install all the required gems for the application: 
-	   exec bundle install
+2. Install all the required gems for the application: 
+		
+		<tt>exec bundle install</tt>
 
 3. Set up database:
-	   rake db:migrate
+		rake db:migrate
 
 4. This application requires an admin User to be set up before use:
 		Rails Console
