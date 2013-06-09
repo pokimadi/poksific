@@ -20,6 +20,8 @@ By Diepriye Pokima
 		
 		Rails Console
 		
+		"The Codes below should be entered in the rails Console"
+		
 		User.create( email:'neo@gmail.com' , name:'Neo', password:'RedPill', password_confirmation:'RedPill')
 		
 		user = User.first
