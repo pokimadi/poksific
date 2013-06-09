@@ -18,15 +18,11 @@ By Diepriye Pokima
 
 4. This application requires an admin User to be set up before use:
 		
-		Rails Console
+		rake db:admin
 		
-		"The Codes below should be entered in the rails Console"
+5. Run Application:
 		
-		User.create( email:'neo@gmail.com' , name:'Neo', password:'RedPill', password_confirmation:'RedPill')
-		
-		user = User.first
-		
-		user.toggle! :admin
+		rails s
 	
 	
 
