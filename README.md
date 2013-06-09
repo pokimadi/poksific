@@ -10,12 +10,14 @@ By Diepriye Pokima
 
 2. Install all the required gems for the application: 
 		
-		<tt>exec bundle install</tt>
+		exec bundle install
 
 3. Set up database:
+		
 		rake db:migrate
 
 4. This application requires an admin User to be set up before use:
+		
 		Rails Console
 		
 		User.create( email:'neo@gmail.com' , name:'Neo', password:'RedPill', password_confirmation:'RedPill')
