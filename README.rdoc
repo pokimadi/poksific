@@ -7,10 +7,10 @@ By Diepriye Pokima
 1. At the command prompt, create a new Rails application:
        <tt>rails new myapp</tt> (where <tt>myapp</tt> is the application name)
        
-1. Clone Device to your local disk using Git:
-	   git clone git@github.com:pokimadi/poksific.git
+2. Clone Device to your local disk using Git:
+	   <tt> git clone git@github.com:pokimadi/poksific.git </tt>
 
-2. Install all the required gems for the application: 
+3. Install all the required gems for the application: 
 	   exec bundle install
 
 3. Set up database:
